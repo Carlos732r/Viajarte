@@ -85,6 +85,7 @@
             font-size: 1.8rem;
             transition: transform 0.3s;
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -501,8 +502,12 @@
 
                 <!-- Linha 2 -->
                 <div class="input-group">
-                    <label>Viajantes</label>
+                    <label>Viajantes adultos</label>
                     <input type="number" id="viajantes" min="1" value="1" required>
+                </div>
+                  <div class="input-group">
+                    <label>Crianças</label>
+                    <input type="number" id="viajantes" min="0" value="0" required>
                 </div>
                 <div class="input-group">
                     <label>Pagamento</label>
