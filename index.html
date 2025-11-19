@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajArte - Experiências Únicas</title>
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Reset e Base --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #0f1f3b;
+            background: radial-gradient(circle at center top, #1a335e 0%, #0f1f3b 80%);
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+            color: white;
+            position: relative;
+            padding-bottom: 80px;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f1f3b; }
+        ::-webkit-scrollbar-thumb { background: #ff9f43; border-radius: 4px; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2vh 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 3vh;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-container img {
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #e0e0e0;
+            margin-top: 5px;
+        }
+
+        .social-header {
+            position: absolute;
+            right: 0;
+            top: 20px;
+        }
+        
+        .insta-link {
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .insta-link:hover { transform: scale(1.2); }
+
+        /* --- Galeria (Carrossel) --- */
+        .gallery-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 15px;
+            width: max-content;
+            animation: scrollGallery 40s linear infinite; 
+        }
+
+        .gallery-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollGallery {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .card {
+            width: 160px;
+            height: 220px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer; /* Indica que é clicável */
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            z-index: 2;
+            box-shadow: 0 15px 30px rgba(255, 159, 67, 0.3);
+        }
+
+        .card::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            padding: 20px 10px 10px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            pointer-events: none; /* Permite clicar no card através do texto */
+        }
+
+        /* Mapeamento das Imagens */
+        .card:nth-child(1), .card:nth-child(13) { background-image: url('Imagens/aparecida.jpeg'); }
+        .card:nth-child(2), .card:nth-child(14) { background-image: url('Imagens/chile.jpeg'); }
+        .card:nth-child(3), .card:nth-child(15) { background-image: url('Imagens/aqua.jpg'); }
+        .card:nth-child(4), .card:nth-child(16) { background-image: url('Imagens/hotel.jpg'); }
+        .card:nth-child(5), .card:nth-child(17) { background-image: url('Imagens/exercito.jpg'); }
+        .card:nth-child(6), .card:nth-child(18) { background-image: url('Imagens/cordilheira.jpg'); }
+        .card:nth-child(7), .card:nth-child(19) { background-image: url('Imagens/paisagem.jpg'); }
+        .card:nth-child(8), .card:nth-child(20) { background-image: url('Imagens/resort.jpg'); }
+        .card:nth-child(9), .card:nth-child(21) { background-image: url('Imagens/igreja.jpg'); }
+        .card:nth-child(10), .card:nth-child(22) { background-image: url('Imagens/leao.jpg'); }
+        .card:nth-child(11), .card:nth-child(23) { background-image: url('Imagens/rua.jpg'); }
+        .card:nth-child(12), .card:nth-child(24) { background-image: url('Imagens/zebra.jpg'); }
+
+        /* --- Formulário --- */
+        .form-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .input-group { display: flex; flex-direction: column; }
+
+        .input-group label {
+            color: #0f1f3b;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .input-group input, .input-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            font-size: 0.9rem;
+            color: #333;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #ff9f43;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(255, 159, 67, 0.2);
+        }
+
+        .span-2 { grid-column: span 2; }
+        .span-4 { grid-column: span 4; }
+
+        .btn-submit {
+            grid-column: span 4;
+            margin-top: 10px;
+            background: linear-gradient(90deg, #ff9f43, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(255, 107, 107, 0.6);
+        }
+
+        /* --- Seção de Contato --- */
+        .contact-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-box { text-align: center; }
+
+        .contact-box h4 {
+            color: #ff9f43;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .contact-btn:hover {
+            background: rgba(255,255,255,0.2);
+            color: #ff9f43;
+        }
+
+        .contact-info p {
+            font-size: 0.8rem;
+            color: #ccc;
+            line-height: 1.4;
+        }
+        
+        .hours-list {
+            list-style: none;
+            font-size: 0.75rem;
+            color: #ccc;
+            text-align: left;
+            display: inline-block;
+        }
+        .hours-list li { margin-bottom: 2px; display: flex; justify-content: space-between; width: 160px; }
+        .hours-list span { color: #fff; }
+
+        /* --- Novo Footer (Desenvolvedor) --- */
+        .dev-footer {
+            margin-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: #aaa;
+            gap: 15px;
+        }
+
+        .dev-footer a {
+            color: #ff9f43;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dev-footer a:hover {
+            color: #ff6b6b;
+            text-decoration: underline;
+        }
+
+        /* --- Botão Flutuante WhatsApp --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover { background-color: #1ebe57; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- Modal / Lightbox de Imagem --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 159, 67, 0.5);
+            animation: zoom 0.4s;
+        }
+
+        #caption {
+            margin-top: 15px;
+            color: #ccc;
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ff9f43;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+
+        /* --- Responsividade --- */
+        @media (max-width: 900px) {
+            .form-grid, .contact-section { grid-template-columns: repeat(2, 1fr); }
+            .span-2, .span-4 { grid-column: span 2; }
+            .social-header { position: relative; top: 0; margin-bottom: 10px; }
+            .dev-footer { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .form-grid, .contact-section { grid-template-columns: 1fr; }
+            .span-2, .span-4 { grid-column: span 1; }
+            .btn-submit { grid-column: span 1; }
+            .contact-section { gap: 30px; }
+            .hours-list li { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="javascript:void(0);" class="whatsapp-float" onclick="abrirWhatsAppFlutuante()" title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Modal / Lightbox da Imagem -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+
+    <div class="container">
+        
+        <!-- 1. Header -->
+        <header>
+            <div class="logo-container">
+                <img src="Imagens/logo1.png" alt="ViajArte Logo">
+            </div>
+            <p class="tagline">Transformando sua viagem em experiência</p>
+            
+            <!-- Ícone Instagram -->
+            <div class="social-header">
+                <a href="https://www.instagram.com/viajarteturismos?igsh=eXl1Y2QyejE1bzU2" target="_blank" class="insta-link" title="Siga-nos no Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </header>
+
+        <!-- 2. Galeria (Carrossel Automático) -->
+        <section class="gallery-wrapper">
+            <div class="gallery-track">
+                <!-- Imagens Originais -->
+                <div class="card" data-title="Aparecida"></div>
+                <div class="card" data-title="Chile"></div>
+                <div class="card" data-title="AcquaLinda"></div>
+                <div class="card" data-title="Hotéis Exclusivos"></div>
+                <div class="card" data-title="Turismo Histórico"></div>
+                <div class="card" data-title="Cordilheira"></div>
+                <div class="card" data-title="Paisagens Naturais"></div>
+                <div class="card" data-title="Resorts"></div>
+                <div class="card" data-title="Templos e Igrejas"></div>
+                <div class="card" data-title="Safári"></div>
+                <div class="card" data-title="Cultura Urbana"></div>
+                <div class="card" data-title="Natureza Selvagem"></div>
+                
+                <!-- Duplicatas para Loop Infinito -->
+                <div class="card" data-title="Aparecida"></div>
+                <div class="card" data-title="Chile"></div>
+                <div class="card" data-title="AcquaLinda"></div>
+                <div class="card" data-title="Hotéis Exclusivos"></div>
+                <div class="card" data-title="Turismo Histórico"></div>
+                <div class="card" data-title="Cordilheira"></div>
+                <div class="card" data-title="Paisagens Naturais"></div>
+                <div class="card" data-title="Resorts"></div>
+                <div class="card" data-title="Templos e Igrejas"></div>
+                <div class="card" data-title="Safári"></div>
+                <div class="card" data-title="Cultura Urbana"></div>
+                <div class="card" data-title="Natureza Selvagem"></div>
+            </div>
+        </section>
+
+        <!-- 3. Formulário de Reserva -->
+        <section class="form-section">
+            <form class="form-grid" onsubmit="event.preventDefault(); enviarOrcamentoWhatsApp();">
+                <!-- Linha 1 -->
+                <div class="input-group">
+                    <label>Origem</label>
+                    <input type="text" id="origem" placeholder="Sua cidade" required>
+                </div>
+                <div class="input-group">
+                    <label>Destino</label>
+                    <input type="text" id="destino" placeholder="Para onde vamos?" required>
+                </div>
+                <div class="input-group">
+                    <label>Ida</label>
+                    <input type="date" id="ida" required>
+                </div>
+                <div class="input-group">
+                    <label>Volta</label>
+                    <input type="date" id="volta" required>
+                </div>
+
+                <!-- Linha 2 -->
+                <div class="input-group">
+                    <label>Viajantes</label>
+                    <input type="number" id="viajantes" min="1" value="1" required>
+                </div>
+                <div class="input-group">
+                    <label>Pagamento</label>
+                    <select id="pagamento" required>
+                        <option>Cartão de Crédito</option>
+                        <option>PIX</option>
+                        <option>Boleto</option>
+                    </select>
+                </div>
+                <div class="input-group span-2">
+                    <label>Nome do Responsável</label>
+                    <input type="text" id="nome" placeholder="Nome completo" required>
+                </div>
+
+                <!-- CTA -->
+                <button type="submit" class="btn-submit">
+                    Solicitar Orçamento Agora
+                </button>
+            </form>
+        </section>
+
+        <!-- 4. Seção de Contato e Informações -->
+        <section class="contact-section">
+            <!-- Canais de Atendimento -->
+            <div class="contact-box">
+                <h4>Fale Conosco</h4>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <a href="javascript:void(0);" onclick="abrirWhatsAppContato()" class="contact-btn">
+                        <i class="fab fa-whatsapp"></i> (18) 99721-2541
+                    </a>
+                    <a href="tel:+5518997212541" class="contact-btn">
+                        <i class="fas fa-phone-alt"></i> Ligar Agora
+                    </a>
+                    <a href="mailto:viajartepp@gmail.com" class="contact-btn">
+                        <i class="fas fa-envelope"></i> Enviar E-mail
+                    </a>
+                </div>
+            </div>
+
+            <!-- Localização -->
+            <div class="contact-box contact-info">
+                <h4>Localização</h4>
+                <i class="fas fa-map-marker-alt" style="color: #ff9f43; font-size: 1.5rem; margin-bottom: 10px;"></i>
+                <p><strong>Presidente Prudente - SP</strong></p>
+                <p>Atendemos toda região</p>
+            </div>
+
+            <!-- Horários -->
+            <div class="contact-box span-2">
+                <h4>Horário de Atendimento</h4>
+                <ul class="hours-list">
+                    <li>Segunda a Sexta <span>09:00 – 17:00</span></li>
+                    <li>Sábado <span>Fechado</span></li>
+                    <li>Domingo <span>Fechado</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 5. Footer do Desenvolvedor -->
+        <footer class="dev-footer">
+            <div>
+                © 2025 Dev Digital BR - Todos os direitos reservados.
+            </div>
+            <div>
+                Desenvolvido por <a href="https://www.devdigitalbr.com.br" target="_blank">Dev Digital BR</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts para o Modal e WhatsApp -->
+    <script>
+        // Variável do número WhatsApp
+        const numeroWhatsApp = '5518997212541'; // Sem caracteres especiais
+
+        // Função para abrir WhatsApp do botão flutuante com mensagem pronta
+        function abrirWhatsAppFlutuante() {
+            const mensagem = encodeURIComponent('Vim pelo site, quero saber como funciona');
+            const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+
+        // Função para abrir WhatsApp da seção de contato com mensagem pronta
+        function abrirWhatsAppContato() {
+            const mensagem = encodeURIComponent('Vim pelo site, quero saber como funciona');
+            const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+
+        // Função para enviar orçamento via WhatsApp
+        function enviarOrcamentoWhatsApp() {
+            // Pega os valores do formulário
+            const origem = document.getElementById('origem').value;
+            const destino = document.getElementById('destino').value;
+            const ida = document.getElementById('ida').value;
+            const volta = document.getElementById('volta').value;
+            const viajantes = document.getElementById('viajantes').value;
+            const pagamento = document.getElementById('pagamento').value;
+            const nome = document.getElementById('nome').value;
+
+            // Formata a mensagem
+            const mensagem = `*📋 SOLICITAÇÃO DE ORÇAMENTO*\n\n` +
+                `*Nome:* ${nome}\n` +
+                `*Origem:* ${origem}\n` +
+                `*Destino:* ${destino}\n` +
+                `*Data de Ida:* ${ida}\n` +
+                `*Data de Volta:* ${volta}\n` +
+                `*Quantidade de Viajantes:* ${viajantes}\n` +
+                `*Forma de Pagamento:* ${pagamento}\n\n` +
+                `Gostaria de receber um orçamento para esta viagem.`;
+
+            const mensagemCodificada = encodeURIComponent(mensagem);
+            const url = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+            
+            // Abre o WhatsApp
+            window.open(url, '_blank');
+        }
+
+        // Pega os elementos
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        const captionText = document.getElementById("caption");
+        const closeBtn = document.getElementsByClassName("close")[0];
+        const cards = document.querySelectorAll(".card");
+
+        // Adiciona evento de clique em cada card
+        cards.forEach(card => {
+            card.addEventListener("click", function() {
+                modal.style.display = "flex";
+                
+                // Pega a imagem de fundo do card e limpa a string url("")
+                const style = window.getComputedStyle(this);
+                let bgImage = style.backgroundImage;
+                
+                // Remove 'url("' do inicio e '")' do fim para pegar só o link
+                bgImage = bgImage.replace(/^url\(['"]?/, '').replace(/['"]?\)$/, '');
+                
+                modalImg.src = bgImage;
+                captionText.innerHTML = this.getAttribute("data-title");
+            });
+        });
+
+        // Botão de fechar
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Fechar ao clicar fora da imagem
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
