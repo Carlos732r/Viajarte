@@ -3,7 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ViajArte - Experiências Únicas</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>ViajArte - Agência de Viagens em Presidente Prudente | Turismo e Experiências Únicas</title>
+    <meta name="description" content="ViajArte: Sua agência de viagens em Presidente Prudente - SP. Pacotes turísticos personalizados, excursões, viagens nacionais e internacionais. Solicite seu orçamento agora! ☎ (18) 99721-2541">
+    <meta name="keywords" content="agência de viagens presidente prudente, viajarte, turismo presidente prudente, pacotes de viagem, excursões, viagens nacionais, viagens internacionais, agência de turismo sp, aparecida, chile, resorts, acqua linda">
+    <meta name="author" content="ViajArte Turismos">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Portuguese">
+    <meta name="geo.region" content="BR-SP">
+    <meta name="geo.placename" content="Presidente Prudente">
+    <meta name="geo.position" content="-22.125;-51.388">
+    <meta name="ICBM" content="-22.125, -51.388">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.viajarte.com.br">
+    <meta property="og:title" content="ViajArte - Agência de Viagens em Presidente Prudente">
+    <meta property="og:description" content="Transformando sua viagem em experiência. Pacotes turísticos personalizados em Presidente Prudente - SP.">
+    <meta property="og:image" content="https://www.viajarte.com.br/Imagens/logo1.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="ViajArte Turismos">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.viajarte.com.br">
+    <meta property="twitter:title" content="ViajArte - Agência de Viagens em Presidente Prudente">
+    <meta property="twitter:description" content="Transformando sua viagem em experiência. Pacotes turísticos personalizados.">
+    <meta property="twitter:image" content="https://www.viajarte.com.br/Imagens/logo1.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.viajarte.com.br">
+    
+    <!-- Schema.org structured data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "ViajArte Turismos",
+      "description": "Agência de viagens especializada em pacotes turísticos personalizados em Presidente Prudente - SP",
+      "url": "https://www.viajarte.com.br",
+      "logo": "https://www.viajarte.com.br/Imagens/logo1.png",
+      "image": "https://www.viajarte.com.br/Imagens/logo1.png",
+      "telephone": "+55-18-99721-2541",
+      "email": "viajartepp@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Presidente Prudente",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-22.125",
+        "longitude": "-51.388"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/viajarteturismos"
+      ],
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "City",
+        "name": "Presidente Prudente"
+      }
+    }
+    </script>
+    
     <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,7 +195,7 @@
             background-position: center;
             position: relative;
             flex-shrink: 0;
-            cursor: pointer; /* Indica que é clicável */
+            cursor: pointer;
             transition: transform 0.3s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             overflow: hidden;
@@ -143,7 +216,7 @@
             font-size: 0.85rem;
             font-weight: 600;
             text-align: center;
-            pointer-events: none; /* Permite clicar no card através do texto */
+            pointer-events: none;
         }
 
         /* Mapeamento das Imagens */
@@ -436,7 +509,7 @@
             <div class="logo-container">
                 <img src="Imagens/logo1.png" alt="ViajArte Logo">
             </div>
-            <p class="tagline"> Levando você ao seu próximo destino</p>
+            <p class="tagline">Levando você ao seu próximo destino</p>
             
             <!-- Ícone Instagram -->
             <div class="social-header">
@@ -503,11 +576,11 @@
                 <!-- Linha 2 -->
                 <div class="input-group">
                     <label>Viajantes adultos</label>
-                    <input type="number" id="viajantes" min="1" value="1" required>
+                    <input type="number" id="adultos" min="1" value="1" required>
                 </div>
-                  <div class="input-group">
+                <div class="input-group">
                     <label>Crianças</label>
-                    <input type="number" id="viajantes" min="0" value="0" required>
+                    <input type="number" id="criancas" min="0" value="0" required>
                 </div>
                 <div class="input-group">
                     <label>Pagamento</label>
@@ -517,7 +590,7 @@
                         <option>Boleto</option>
                     </select>
                 </div>
-                <div class="input-group span-2">
+                <div class="input-group">
                     <label>Nome do Responsável</label>
                     <input type="text" id="nome" placeholder="Nome completo" required>
                 </div>
@@ -580,18 +653,18 @@
     <!-- Scripts para o Modal e WhatsApp -->
     <script>
         // Variável do número WhatsApp
-        const numeroWhatsApp = '5518997212541'; // Sem caracteres especiais
+        const numeroWhatsApp = '5518997212541';
 
         // Função para abrir WhatsApp do botão flutuante com mensagem pronta
         function abrirWhatsAppFlutuante() {
-            const mensagem = encodeURIComponent('Vim pelo site, quero saber como funciona');
+            const mensagem = encodeURIComponent('Olá! Vim pelo site e quero saber como funciona.');
             const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
             window.open(url, '_blank');
         }
 
         // Função para abrir WhatsApp da seção de contato com mensagem pronta
         function abrirWhatsAppContato() {
-            const mensagem = encodeURIComponent('Vim pelo site, quero saber como funciona');
+            const mensagem = encodeURIComponent('Olá! Vim pelo site e quero saber como funciona.');
             const url = `https://wa.me/${numeroWhatsApp}?text=${mensagem}`;
             window.open(url, '_blank');
         }
@@ -603,7 +676,8 @@
             const destino = document.getElementById('destino').value;
             const ida = document.getElementById('ida').value;
             const volta = document.getElementById('volta').value;
-            const viajantes = document.getElementById('viajantes').value;
+            const adultos = document.getElementById('adultos').value;
+            const criancas = document.getElementById('criancas').value;
             const pagamento = document.getElementById('pagamento').value;
             const nome = document.getElementById('nome').value;
 
@@ -614,7 +688,8 @@
                 `*Destino:* ${destino}\n` +
                 `*Data de Ida:* ${ida}\n` +
                 `*Data de Volta:* ${volta}\n` +
-                `*Quantidade de Viajantes:* ${viajantes}\n` +
+                `*Adultos:* ${adultos}\n` +
+                `*Crianças:* ${criancas}\n` +
                 `*Forma de Pagamento:* ${pagamento}\n\n` +
                 `Gostaria de receber um orçamento para esta viagem.`;
 
@@ -625,7 +700,7 @@
             window.open(url, '_blank');
         }
 
-        // Pega os elementos
+        // Pega os elementos do modal
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImg");
         const captionText = document.getElementById("caption");
