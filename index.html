@@ -351,10 +351,20 @@
             list-style: none;
             font-size: 0.75rem;
             color: #ccc;
-            text-align: left;
-            display: inline-block;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
-        .hours-list li { margin-bottom: 2px; display: flex; justify-content: space-between; width: 160px; gap: 15px; }
+        .hours-list li { 
+            display: flex; 
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
         .hours-list span { color: #fff; }
 
         /* --- Novo Footer (Desenvolvedor) --- */
@@ -484,7 +494,6 @@
             .span-2, .span-4 { grid-column: span 1; }
             .btn-submit { grid-column: span 1; }
             .contact-section { gap: 30px; }
-            .hours-list li { width: 100%; flex-direction: column; gap: 5px; }
         }
     </style>
 </head>
@@ -633,8 +642,7 @@
                 <h4>Horário de Atendimento</h4>
                 <ul class="hours-list">
                     <li>Segunda a Sexta <span>09:00 – 17:00</span></li>
-                    <li>Sábado <span>Fechado</span></li>
-                    <li>Domingo <span>Fechado</span></li>
+                    <li>Sábado e Domingo <span>Fechado</span></li>
                 </ul>
             </div>
         </section>
