@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags -->
     <title>ViajArte - Agência de Viagens em Presidente Prudente | Turismo e Experiências Únicas</title>
     <meta name="description" content="ViajArte: Sua agência de viagens em Presidente Prudente - SP. Pacotes turísticos personalizados, excursões, viagens nacionais e internacionais. Solicite seu orçamento agora! ☎ (18) 99721-2541">
     <meta name="keywords" content="agência de viagens presidente prudente, viajarte, turismo presidente prudente, pacotes de viagem, excursões, viagens nacionais, viagens internacionais, agência de turismo sp, aparecida, chile, resorts, acqua linda">
@@ -16,7 +15,6 @@
     <meta name="geo.position" content="-22.125;-51.388">
     <meta name="ICBM" content="-22.125, -51.388">
     
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.viajarte.com.br">
     <meta property="og:title" content="ViajArte - Agência de Viagens em Presidente Prudente">
@@ -25,23 +23,19 @@
     <meta property="og:locale" content="pt_BR">
     <meta property="og:site_name" content="ViajArte Turismos">
     
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://www.viajarte.com.br">
     <meta property="twitter:title" content="ViajArte - Agência de Viagens em Presidente Prudente">
     <meta property="twitter:description" content="Transformando sua viagem em experiência. Pacotes turísticos personalizados.">
     <meta property="twitter:image" content="https://www.viajarte.com.br/Imagens/logo1.png">
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.viajarte.com.br">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="Imagens/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="Imagens/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="Imagens/apple-touch-icon.png">
     <link rel="shortcut icon" href="Imagens/favicon.ico">
     
-    <!-- Schema.org structured data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -83,13 +77,11 @@
     }
     </script>
     
-    <!-- Fontes e Ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4TM0FREXG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -140,6 +132,27 @@
             gap: 3vh;
         }
 
+        /* --- Tipografia de Títulos SEO (Novo) --- */
+        .tagline {
+            font-size: 1.1rem; /* Aumentei um pouco para ser legível como H1 */
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #e0e0e0;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ff9f43;
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
         /* --- Header --- */
         header {
             display: flex;
@@ -152,14 +165,6 @@
             height: 80px;
             object-fit: contain;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-            color: #e0e0e0;
-            margin-top: 5px;
         }
 
         .social-header {
@@ -502,6 +507,10 @@
             .span-2, .span-4 { grid-column: span 2; }
             .social-header { position: relative; top: 0; margin-bottom: 10px; }
             .dev-footer { flex-direction: column; text-align: center; }
+            
+            /* Ajuste de fonte mobile para H1 */
+            .tagline { font-size: 1rem; }
+            .section-title { font-size: 1.4rem; }
         }
 
         @media (max-width: 600px) {
@@ -514,12 +523,10 @@
 </head>
 <body>
 
-    <!-- Botão Flutuante WhatsApp -->
     <a href="javascript:void(0);" class="whatsapp-float" onclick="abrirWhatsAppFlutuante()" title="Fale conosco no WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Modal / Lightbox da Imagem -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImg">
@@ -528,14 +535,13 @@
 
     <div class="container">
         
-        <!-- 1. Header -->
         <header>
             <div class="logo-container">
                 <img src="Imagens/logo1.png" alt="ViajArte Logo">
             </div>
-            <p class="tagline">Levando você ao seu próximo destino</p>
             
-            <!-- Ícone Instagram -->
+            <h1 class="tagline">ViajArte: Sua Agência de Viagens em Presidente Prudente</h1>
+            
             <div class="social-header">
                 <a href="https://www.instagram.com/viajarteturismos?igsh=eXl1Y2QyejE1bzU2" target="_blank" class="insta-link" title="Siga-nos no Instagram">
                     <i class="fab fa-instagram"></i>
@@ -543,10 +549,10 @@
             </div>
         </header>
 
-        <!-- 2. Galeria (Carrossel Automático) -->
+        <h2 class="section-title">Destinos Populares</h2>
+
         <section class="gallery-wrapper">
             <div class="gallery-track">
-                <!-- Imagens Originais -->
                 <div class="card" data-title="Aparecida"></div>
                 <div class="card" data-title="Chile"></div>
                 <div class="card" data-title="AcquaLinda"></div>
@@ -560,7 +566,6 @@
                 <div class="card" data-title="Cultura Urbana"></div>
                 <div class="card" data-title="Natureza Selvagem"></div>
                 
-                <!-- Duplicatas para Loop Infinito -->
                 <div class="card" data-title="Aparecida"></div>
                 <div class="card" data-title="Chile"></div>
                 <div class="card" data-title="AcquaLinda"></div>
@@ -576,10 +581,10 @@
             </div>
         </section>
 
-        <!-- 3. Formulário de Reserva -->
+        <h2 class="section-title">Solicite seu Orçamento</h2>
+
         <section class="form-section">
             <form class="form-grid" onsubmit="event.preventDefault(); enviarOrcamentoWhatsApp();">
-                <!-- Linha 1 -->
                 <div class="input-group">
                     <label>Origem</label>
                     <input type="text" id="origem" placeholder="Sua cidade" required>
@@ -597,7 +602,6 @@
                     <input type="date" id="volta" required>
                 </div>
 
-                <!-- Linha 2 -->
                 <div class="input-group">
                     <label>Viajantes adultos</label>
                     <input type="number" id="adultos" min="1" value="1" required>
@@ -619,16 +623,13 @@
                     <input type="text" id="nome" placeholder="Nome completo" required>
                 </div>
 
-                <!-- CTA -->
                 <button type="submit" class="btn-submit">
                     Solicitar Orçamento Agora
                 </button>
             </form>
         </section>
 
-        <!-- 4. Seção de Contato e Informações -->
         <section class="contact-section">
-            <!-- Canais de Atendimento -->
             <div class="contact-box">
                 <h4>Fale Conosco</h4>
                 <div style="display: flex; flex-direction: column; gap: 10px;">
@@ -644,7 +645,6 @@
                 </div>
             </div>
 
-            <!-- Localização -->
             <div class="contact-box contact-info">
                 <h4>Localização</h4>
                 <i class="fas fa-map-marker-alt" style="color: #ff9f43; font-size: 1.5rem; margin-bottom: 10px;"></i>
@@ -652,7 +652,6 @@
                 <p>Atendemos toda região</p>
             </div>
 
-            <!-- Horários -->
             <div class="contact-box span-2">
                 <h4>Horário de Atendimento</h4>
                 <ul class="hours-list">
@@ -662,7 +661,6 @@
             </div>
         </section>
 
-        <!-- 5. Footer do Desenvolvedor -->
         <footer class="dev-footer">
             <div>
                 © 2025 Viajarte - Todos os direitos reservados.
@@ -673,7 +671,6 @@
         </footer>
     </div>
 
-    <!-- Scripts para o Modal e WhatsApp -->
     <script>
         // Variável do número WhatsApp
         const numeroWhatsApp = '5518997212541';
